@@ -1,0 +1,20 @@
+# Dev values for ingestion.
+nameOverride: ingestion
+exports:
+  data:
+    replicaCount: 1
+    image:
+      pullPolicy: Always
+    telemetry:
+      level: "info"
+    reason: "new dev deploy"
+    current: true
+    ingress:
+      class: "nginx-dev"
+    resources:
+      requests:
+        cpu: 129m
+        memory: 600Mi
+      limits:
+        cpu: 194m
+        memory: 800Mi

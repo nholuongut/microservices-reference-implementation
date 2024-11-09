@@ -1,0 +1,39 @@
+# Default values for package service.
+nameOverride: package
+replicaCount: 1
+identity:
+  clientid:
+  serviceAccountName:
+  tenantId:
+keyVaultName:
+dockerregistrynamespace:
+dockerregistry:
+image:
+  repository:
+  tag:
+  pullPolicy: IfNotPresent
+reason: unknown
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 80
+  initialDelaySeconds: 40
+  periodSeconds: 15
+  timeoutSeconds: 2
+  failureThreshold: 5
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 80
+  initialDelaySeconds: 50
+  periodSeconds: 15
+log:
+  level: error
+cosmosDb:
+  collectionName:
+tags:
+  dev: false
+  prod: false
+  qa: false
+  staging: false
+current: false

@@ -1,0 +1,39 @@
+# Default values for dronescheduler.
+replicaCount: 1
+identity:
+  clientid:
+  serviceAccountName:
+dockerregistrynamespace:
+dockerregistry:
+image:
+  repository:
+  tag:
+  pullPolicy: IfNotPresent
+keyvault:
+  uri:
+cosmosdb:
+  id:
+  collectionid:
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 40
+  periodSeconds: 15
+  timeoutSeconds: 2
+  failureThreshold: 5
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 50
+  periodSeconds: 15
+reason: unknown
+telemetry:
+  level: "Error"
+tags:
+  dev: false
+  prod: false
+  qa: false
+  staging: false
+current: false

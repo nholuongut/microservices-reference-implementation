@@ -1,0 +1,42 @@
+# Default values for delivery.
+nameOverride: delivery
+replicaCount: 1
+identity:
+  clientid:
+  serviceAccountName:
+  tenantId:
+keyVaultName:
+dockerregistrynamespace:
+dockerregistry:
+image:
+  repository:
+  tag:
+  pullPolicy: IfNotPresent
+cosmosdb:
+  id:
+  collectionid:
+keyvault:
+  uri:
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 40
+  periodSeconds: 15
+  timeoutSeconds: 2
+  failureThreshold: 5
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 50
+  periodSeconds: 15
+telemetry:
+  level: "Error"
+reason: unknown
+tags:
+  dev: false
+  prod: false
+  qa: false
+  staging: false
+current: false

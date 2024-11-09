@@ -1,0 +1,20 @@
+# Dev values for package.
+nameOverride: package
+exports:
+  data:
+    replicaCount: 1
+    image:
+      pullPolicy: Always
+    log:
+      level: "info"
+    reason: "new dev deploy"
+    current: true
+    ingress:
+      class: "nginx-dev"
+    resources:
+      requests:
+        cpu: 78m
+        memory: 100Mi
+      limits:
+        cpu: 117m
+        memory: 140Mi
